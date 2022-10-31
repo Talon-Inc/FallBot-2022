@@ -11,7 +11,7 @@ public class PneumaticsSubsystem extends SubsystemBase {
   private DoubleSolenoid sol1 = null;
 
   /** Creates a new ExampleSubsystem. */
-  public PnuematicsSubsystem() {
+  public PneumaticsSubsystem() {
     sol1 = new DoubleSolenoid(PneumaticsModuleType.valueof("CTREPCM"), 0, 1);
   }
 
