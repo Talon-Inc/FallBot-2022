@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class PneumaticsSubsystem extends SubsystemBase {
@@ -12,7 +14,7 @@ public class PneumaticsSubsystem extends SubsystemBase {
 
   /** Creates a new ExampleSubsystem. */
   public PneumaticsSubsystem() {
-    sol1 = new DoubleSolenoid(PneumaticsModuleType.valueof("CTREPCM"), 0, 1);
+    sol1 = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 0, 1);
   }
 
   // Methods
