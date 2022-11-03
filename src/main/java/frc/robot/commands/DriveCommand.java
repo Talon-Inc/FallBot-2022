@@ -5,12 +5,14 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
 public class DriveCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final DriveTrain m_subsystem;
+  private final DriveTrain driveTrain;
+  Joystick joystick = null;
 
   /**
    * Creates a new ExampleCommand.
@@ -18,9 +20,11 @@ public class DriveCommand extends CommandBase {
    * @param subsystem The subsystem used by this command.
    */
   public DriveCommand(DriveTrain subsystem) {
-    m_subsystem = subsystem;
+    driveTrain = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
+    joystick = new Joystick(1);
+    driveTrain.arcadeDrive(joystick.getY(), joystick.getX());
   }
 
   // Called when the command is initially scheduled.
