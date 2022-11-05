@@ -34,7 +34,54 @@ public class DriveCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    driveTrain.arcadeDrive(joystick.getY(), joystick.getX());
+    // String work = "";
+
+    /* get gamepad stick values */
+    double forw = -1 * joystick.getRawAxis(1); /* positive is forward */
+    double turn = +1 * joystick.getRawAxis(2); /* positive is right */
+    // boolean btn1 = joystick.getRawButton(1); /* is button is down, print joystick values */
+
+    /* deadband gamepad 10% */
+    if (Math.abs(forw) < 0.10) {
+        forw = 0;
+    }
+    if (Math.abs(turn) < 0.10) {
+        turn = 0;
+    }
+
+    /* drive robot */
+    driveTrain.arcadeDrive(forw, turn);
+
+    /*
+     * [2] Make sure Gamepad Forward is positive for FORWARD, and GZ is positive for
+     * RIGHT
+     */
+    // work += " GF:" + forw + " GT:" + turn;
+
+    /* get sensor values */
+    // double leftPos = _leftFront.GetSelectedSensorPosition(0);
+    // double rghtPos = _rghtFront.GetSelectedSensorPosition(0);
+    // double leftVelUnitsPer100ms = _leftFront.getSelectedSensorVelocity(0);
+    // double rghtVelUnitsPer100ms = _rghtFront.getSelectedSensorVelocity(0);
+
+    // work += " L:" + leftVelUnitsPer100ms + " R:" + rghtVelUnitsPer100ms;
+
+    /*
+      * drive motor at least 25%, Talons will auto-detect if sensor is out of phase
+      */
+    // _leftFront.getFaults(_faults_L);
+    // _rghtFront.getFaults(_faults_R);
+
+    // if (_faults_L.SensorOutOfPhase) {
+    //     work += " L sensor is out of phase";
+    // }
+    // if (_faults_R.SensorOutOfPhase) {
+    //     work += " R sensor is out of phase";
+    // }
+
+    // /* print to console if btn1 is held down */
+    // if (btn1) {
+    //     System.out.println(work);
   }
 
   // Called once the command ends or is interrupted.

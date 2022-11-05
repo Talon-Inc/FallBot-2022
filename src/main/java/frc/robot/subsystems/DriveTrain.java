@@ -4,20 +4,17 @@
 
 package frc.robot.subsystems;
 
-import java.security.acl.Group;
-
 import com.ctre.phoenix.motorcontrol.GroupMotorControllers;
-import com.ctre.phoenix.motorcontrol.IMotorController;
 import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.TalonSRXConfiguration;
+// import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+// import com.ctre.phoenix.motorcontrol.can.TalonSRXConfiguration;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import edu.wpi.first.wpilibj.motorcontrol.Talon;
+// import edu.wpi.first.wpilibj.motorcontrol.MotorController;
+// import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+// import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -39,14 +36,14 @@ public class DriveTrain extends SubsystemBase {
     RFMOTOR = new WPI_TalonSRX(Constants.DRIVETRAIN_RFMOTOR);
     RBMOTOR = new WPI_TalonSRX(Constants.DRIVETRAIN_RBMOTOR);
 
-    TalonSRXConfiguration config = new TalonSRXConfiguration();
-    config.peakCurrentLimit = 40; // the peak current, in amps
-    config.peakCurrentDuration = 1500; // the time at the peak current before the limit triggers, in ms
-    config.continuousCurrentLimit = 30; // the current to maintain if the peak limit is triggered
-    LFMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
-    LBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
-    RFMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
-    RBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
+    // TalonSRXConfiguration config = new TalonSRXConfiguration();
+    // config.peakCurrentLimit = 40; // the peak current, in amps
+    // config.peakCurrentDuration = 1500; // the time at the peak current before the limit triggers, in ms
+    // config.continuousCurrentLimit = 30; // the current to maintain if the peak limit is triggered
+    // LFMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
+    // LBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
+    // RFMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
+    // RBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
 
     LFMOTOR.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
     LBMOTOR.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power

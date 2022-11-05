@@ -81,12 +81,13 @@ public class Robot extends TimedRobot {
 
     driveCommand = m_robotContainer.getDriveCommand();
     driveCommand.initialize();
+    driveCommand.execute();
   }
 
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    driveCommand.execute();
+    
   }
 
   @Override
