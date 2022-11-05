@@ -25,7 +25,6 @@ public class DriveCommand extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
     joystick = new Joystick(Constants.JOYSTICK_PORT);
-    driveTrain.arcadeDrive(joystick.getY(), joystick.getX());
   }
 
   // Called when the command is initially scheduled.
@@ -34,7 +33,9 @@ public class DriveCommand extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    driveTrain.arcadeDrive(joystick.getY()/4, joystick.getX()/4);
+  }
 
   // Called once the command ends or is interrupted.
   @Override

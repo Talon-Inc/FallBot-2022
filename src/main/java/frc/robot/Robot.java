@@ -83,6 +83,7 @@ public class Robot extends TimedRobot {
 
     driveCommand = new DriveCommand(new DriveTrain());
     driveCommand.initialize();
+    
   }
 
   /** This function is called periodically during operator control. */

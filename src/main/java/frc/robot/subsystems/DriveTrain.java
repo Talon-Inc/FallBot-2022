@@ -25,7 +25,7 @@ public class DriveTrain extends SubsystemBase {
 
   public DriveTrain() {
     LFMOTOR = new Talon(Constants.DRIVETRAIN_LFMOTOR);
-    LBMOTOR = new Talon(Constants.DRIVETRAIN_LBOTOR);
+    LBMOTOR = new Talon(Constants.DRIVETRAIN_LBMOTOR);
     RFMOTOR = new Talon(Constants.DRIVETRAIN_RFMOTOR);
     RBMOTOR = new Talon(Constants.DRIVETRAIN_RBMOTOR);
     
