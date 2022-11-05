@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import frc.robot.Constants;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -23,7 +24,7 @@ public class DriveCommand extends CommandBase {
     driveTrain = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
-    joystick = new Joystick(1);
+    joystick = new Joystick(Constants.JOYSTICK_PORT);
     driveTrain.arcadeDrive(joystick.getY(), joystick.getX());
   }
 

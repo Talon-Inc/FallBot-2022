@@ -7,7 +7,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
+import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -24,13 +24,14 @@ public class DriveTrain extends SubsystemBase {
   DifferentialDrive differentialDrive = null;
 
   public DriveTrain() {
-    LFMOTOR = new Spark(Constants.DRIVETRAIN_LFMOTOR);
-    LBMOTOR = new Spark(Constants.DRIVETRAIN_LBOTOR);
-    RFMOTOR = new Spark(Constants.DRIVETRAIN_RFMOTOR);
-    RBMOTOR = new Spark(Constants.DRIVETRAIN_RBMOTOR);
+    LFMOTOR = new Talon(Constants.DRIVETRAIN_LFMOTOR);
+    LBMOTOR = new Talon(Constants.DRIVETRAIN_LBOTOR);
+    RFMOTOR = new Talon(Constants.DRIVETRAIN_RFMOTOR);
+    RBMOTOR = new Talon(Constants.DRIVETRAIN_RBMOTOR);
     
     leftMotors = new MotorControllerGroup(LFMOTOR, LBMOTOR);
     rightMotors = new MotorControllerGroup(RFMOTOR, RBMOTOR);
+    rightMotors.setInverted(true);
     
     differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
   }

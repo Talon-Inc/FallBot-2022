@@ -18,4 +18,5 @@ public final class Constants {
     public static final int DRIVETRAIN_RFMOTOR = 2;
     public static final int DRIVETRAIN_RBMOTOR = 3;
     
+    public static final int JOYSTICK_PORT = 0;
 }
