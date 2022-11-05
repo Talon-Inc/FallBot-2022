@@ -4,6 +4,13 @@
 
 package frc.robot.subsystems;
 
+import java.security.acl.Group;
+
+import com.ctre.phoenix.motorcontrol.GroupMotorControllers;
+import com.ctre.phoenix.motorcontrol.IMotorController;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRXConfiguration;
+
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
@@ -13,24 +20,38 @@ import frc.robot.Constants;
 
 public class DriveTrain extends SubsystemBase {
   /** Creates a DriveTrain. */
-  public static MotorController LFMOTOR = null;
-  public static MotorController LBMOTOR = null;
-  public static MotorController RFMOTOR = null;
-  public static MotorController RBMOTOR = null;
+  IMotorController LFMOTOR = null;
+  IMotorController LBMOTOR = null;
+  IMotorController RFMOTOR = null;
+  IMotorController RBMOTOR = null;
 
-  MotorControllerGroup leftMotors = null;
-  MotorControllerGroup rightMotors = null;
+  GroupMotorControllers leftMotors = null;
+  GroupMotorControllers rightMotors = null;
 
   DifferentialDrive differentialDrive = null;
 
   public DriveTrain() {
-    LFMOTOR = new Talon(Constants.DRIVETRAIN_LFMOTOR);
-    LBMOTOR = new Talon(Constants.DRIVETRAIN_LBMOTOR);
-    RFMOTOR = new Talon(Constants.DRIVETRAIN_RFMOTOR);
-    RBMOTOR = new Talon(Constants.DRIVETRAIN_RBMOTOR);
+    LFMOTOR = new TalonSRX(Constants.DRIVETRAIN_LFMOTOR);
+    LBMOTOR = new TalonSRX(Constants.DRIVETRAIN_LBMOTOR);
+    RFMOTOR = new TalonSRX(Constants.DRIVETRAIN_RFMOTOR);
+    RBMOTOR = new TalonSRX(Constants.DRIVETRAIN_RBMOTOR);
+
+    TalonSRXConfiguration config = new TalonSRXConfiguration();
+    config.peakCurrentLimit = 40; // the peak current, in amps
+    config.peakCurrentDuration = 1500; // the time at the peak current before the limit triggers, in ms
+    config.continuousCurrentLimit = 30; // the current to maintain if the peak limit is triggered
+    LFMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
+    LBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
+    RFMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
+    RBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
+
     
-    leftMotors = new MotorControllerGroup(LFMOTOR, LBMOTOR);
-    rightMotors = new MotorControllerGroup(RFMOTOR, RBMOTOR);
+    leftMotors = new GroupMotorControllers();
+    GroupMotorControllers.register(LFMOTOR);
+    
+    rightMotors = new GroupMotorControllers();
+
+
     rightMotors.setInverted(true);
     
     differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
