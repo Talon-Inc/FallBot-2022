@@ -64,9 +64,7 @@ public class DriveTrain extends SubsystemBase {
     leftFrontMotor.setInverted(false); // !< Update this
     rightFrontMotor.setInverted(true); // !< Update this
 
-    /*
-     * set the invert of the followers to match their respective master controllers
-     */
+    /* set the invert of the followers to match their respective master controllers */
     leftBackMotor.setInverted(InvertType.FollowMaster);
     rightBackMotor.setInverted(InvertType.FollowMaster);
     
@@ -77,7 +75,7 @@ public class DriveTrain extends SubsystemBase {
     rightFrontMotor.setSensorPhase(true);
 
     // leftMotors = new GroupMotorControllers();
-    // GroupMotorControllers.register(LFMOTOR);
+    // GroupMotorControllers.register(leftFrontMotor);
     // rightMotors = new GroupMotorControllers();
     // rightMotors.setInverted(true);
     

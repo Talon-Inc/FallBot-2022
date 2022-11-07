@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-  private Command driveCommand;
+  private Command r_driveCommand;
 
   private RobotContainer m_robotContainer;
 
@@ -79,9 +79,9 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
 
-    driveCommand = m_robotContainer.getDriveCommand();
-    driveCommand.initialize();
-    driveCommand.execute();
+    r_driveCommand = m_robotContainer.getDriveCommand();
+    r_driveCommand.initialize();
+    r_driveCommand.execute();
   }
 
   /** This function is called periodically during operator control. */
