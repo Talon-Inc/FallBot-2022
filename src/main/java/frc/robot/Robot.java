@@ -4,7 +4,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -51,9 +50,7 @@ public class Robot extends TimedRobot {
   /** This function is called once each time the robot enters Disabled mode. */
   @Override
   public void disabledInit() {
-    if (m_autonomousCommand != null) { m_autonomousCommand.cancel(); }
-
-    if (r_driveCommand != null) { r_driveCommand.cancel(); }
+    CommandScheduler.getInstance().cancelAll();
   }
 
   @Override
@@ -88,7 +85,6 @@ public class Robot extends TimedRobot {
     if (r_driveCommand != null) {
       r_driveCommand.schedule();
     }
-    r_driveCommand.initialize();
   }
 
   /** This function is called periodically during operator control. */
