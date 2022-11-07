@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 /** An example command that uses an example subsystem. */
 public class DriveCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
+  private boolean finished;
   private final DriveTrain driveTrain;
   Joystick joystick = null;
 
@@ -21,6 +22,7 @@ public class DriveCommand extends CommandBase {
    * @param driveTrain The subsystem used by this command.
    */
   public DriveCommand(DriveTrain driveTrain) {
+    this.finished = false;
     this.driveTrain = driveTrain;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrain);
@@ -67,8 +69,8 @@ public class DriveCommand extends CommandBase {
     // work += " L:" + leftVelUnitsPer100ms + " R:" + rghtVelUnitsPer100ms;
 
     /*
-      * drive motor at least 25%, Talons will auto-detect if sensor is out of phase
-      */
+     * drive motor at least 25%, Talons will auto-detect if sensor is out of phase
+     */
     // _leftFront.getFaults(_faults_L);
     // _rghtFront.getFaults(_faults_R);
 
@@ -91,6 +93,6 @@ public class DriveCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return finished;
   }
 }
