@@ -16,14 +16,14 @@ public class DriveCommand extends CommandBase {
   Joystick joystick = null;
 
   /**
-   * Creates a new ExampleCommand.
+   * Creates a new DriveCommand.
    *
-   * @param subsystem The subsystem used by this command.
+   * @param driveTrain The subsystem used by this command.
    */
-  public DriveCommand(DriveTrain subsystem) {
-    driveTrain = subsystem;
+  public DriveCommand(DriveTrain driveTrain) {
+    this.driveTrain = driveTrain;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    addRequirements(driveTrain);
     joystick = new Joystick(Constants.JOYSTICK_PORT);
   }
 
