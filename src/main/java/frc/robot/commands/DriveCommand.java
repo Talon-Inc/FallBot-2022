@@ -21,17 +21,19 @@ public class DriveCommand extends CommandBase {
    *
    * @param driveTrain The subsystem used by this command.
    */
-  public DriveCommand(DriveTrain driveTrain) {
+  public DriveCommand(DriveTrain driveTrain, Joystick joystick) {
     this.finished = false;
     this.driveTrain = driveTrain;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrain);
-    joystick = new Joystick(Constants.JOYSTICK_PORT);
+    this.joystick = joystick;
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    finished = false;
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -88,7 +90,10 @@ public class DriveCommand extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    driveTrain.arcadeDrive(0, 0);
+    finished = true;
+  }
 
   // Returns true when the command should end.
   @Override

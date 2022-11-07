@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.ExampleCommand;
@@ -20,12 +21,14 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  private final Joystick joystick = new Joystick(Constants.JOYSTICK_PORT);
+  
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   private final DriveTrain driveTrain = new DriveTrain();
-  private final DriveCommand driveCommand = new DriveCommand(driveTrain);
+  private final DriveCommand driveCommand = new DriveCommand(driveTrain, joystick);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -51,6 +54,11 @@ public class RobotContainer {
     return m_autoCommand;
   }
 
+  /**
+   * Use this to pass the drive train command to the main {@link Robot} class.
+   * 
+   * @return the command to run the Drive Train
+   */
   public Command getDriveCommand() {
     return driveCommand;
   }
