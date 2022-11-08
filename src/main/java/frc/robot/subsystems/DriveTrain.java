@@ -12,9 +12,6 @@ import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-// import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-// import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-// import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -44,11 +41,11 @@ public class DriveTrain extends SubsystemBase {
     // LBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
     // RFMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
     // RBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
-
-    leftFrontMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
-    leftBackMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
-    rightFrontMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
-    rightBackMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
+    double power = 0.5;
+    leftFrontMotor.set(TalonSRXControlMode.PercentOutput, power); // runs the motor at 50% power
+    leftBackMotor.set(TalonSRXControlMode.PercentOutput, power); // runs the motor at 50% power
+    rightFrontMotor.set(TalonSRXControlMode.PercentOutput, power); // runs the motor at 50% power
+    rightBackMotor.set(TalonSRXControlMode.PercentOutput, power); // runs the motor at 50% power
 
     /* factory default values */
     leftFrontMotor.configFactoryDefault();
@@ -61,8 +58,9 @@ public class DriveTrain extends SubsystemBase {
     rightBackMotor.follow(rightFrontMotor);
 
     /* [3] flip values so robot moves forward when stick-forward/LEDs-green */
-    leftFrontMotor.setInverted(false); // !< Update this
-    rightFrontMotor.setInverted(true); // !< Update this
+    boolean leftInverted = false; // !< Update this
+    leftFrontMotor.setInverted(leftInverted);
+    rightFrontMotor.setInverted(!leftInverted);
 
     /* set the invert of the followers to match their respective master controllers */
     leftBackMotor.setInverted(InvertType.FollowMaster);
