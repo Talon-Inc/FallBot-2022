@@ -99,7 +99,29 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    driveTrain.arcadeDrive(joystick.getY(), joystick.getX());
+    boolean flag = false;
+    // flag = true; // uncomment this line to switch versions
+    if (flag) {
+      /* get gamepad stick values */
+      double forw = -1 * joystick.getRawAxis(1); /* positive is forward */
+      double turn = +1 * joystick.getRawAxis(2); /* positive is right */
+      // boolean btn1 = joystick.getRawButton(1); /* is button is down, print joystick values */
+
+      /* deadband gamepad 10% */
+      if (Math.abs(forw) < 0.10) {
+          forw = 0;
+      }
+      if (Math.abs(turn) < 0.10) {
+          turn = 0;
+      }
+
+      /* drive robot */
+      driveTrain.arcadeDrive(forw, turn);
+    } else {
+      /* drive robot */
+      driveTrain.arcadeDrive(joystick.getY(), joystick.getX());
+    }
+
   }
 
   @Override

@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 public class DriveCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private boolean finished;
-  private final DriveTrain driveTrain;
-  Joystick joystick = null;
+  private DriveTrain driveTrain;
+  private Joystick joystick;
 
   /**
    * Creates a new DriveCommand.
