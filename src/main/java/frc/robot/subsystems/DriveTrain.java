@@ -61,8 +61,9 @@ public class DriveTrain extends SubsystemBase {
     rightBackMotor.follow(rightFrontMotor);
 
     /* [3] flip values so robot moves forward when stick-forward/LEDs-green */
-    leftFrontMotor.setInverted(false); // !< Update this
-    rightFrontMotor.setInverted(true); // !< Update this
+    boolean leftInverted = false; // !< Update this
+    leftFrontMotor.setInverted(leftInverted);
+    rightFrontMotor.setInverted(!leftInverted);
 
     /* set the invert of the followers to match their respective master controllers */
     leftBackMotor.setInverted(InvertType.FollowMaster);
