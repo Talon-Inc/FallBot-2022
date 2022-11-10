@@ -25,6 +25,18 @@ public class PneumaticsSubsystem extends SubsystemBase {
   }
 
   // Methods
+  public void compStart() {
+    comp.enableDigital();
+  }
+
+  public void sol1Open() {
+    sol1.set(DoubleSolenoid.Value.kForward);
+  }
+
+  public void sol1Close() {
+    sol1.set(DoubleSolenoid.Value.kReverse);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
