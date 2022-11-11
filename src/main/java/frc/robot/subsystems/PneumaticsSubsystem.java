@@ -8,20 +8,21 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.commands.PnuematicsCommand;
 
 public class PneumaticsSubsystem extends SubsystemBase {
   // Variables
   private Compressor comp = null;
   private DoubleSolenoid sol1 = null;
-  private DoubleSolenoid sol2 = null;
-  private DoubleSolenoid sol3 = null;
+  private DoubleSolenoid pusher = null;
+  private DoubleSolenoid puffer = null;
 
   /** Creates a new ExampleSubsystem. */
   public PneumaticsSubsystem() {
-    comp = new Compressor(moduleType);
+    comp = new Compressor(PneumaticsModuleType.valueOf("CTREPCM"));
     sol1 = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 0, 1);
-    sol1 = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 2, 3);
-    sol1 = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 4, 5);
+    pusher = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 2, 3);
+    puffer = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 4, 5);
   }
 
   // Methods
@@ -35,6 +36,10 @@ public class PneumaticsSubsystem extends SubsystemBase {
 
   public void sol1Close() {
     sol1.set(DoubleSolenoid.Value.kReverse);
+  }
+
+  public void pusherOpen() {
+    pusher.set(DoubleSolenoid.Value.kForward);
   }
 
   @Override
