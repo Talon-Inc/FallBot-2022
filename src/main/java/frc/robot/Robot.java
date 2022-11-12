@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import static frc.robot.Constants.*;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -17,7 +19,6 @@ import frc.robot.subsystems.DriveTrain;
  * project.
  */
 public class Robot extends TimedRobot {
-  private Command m_autonomousCommand;
   private Command r_driveCommand;
 
   private RobotContainer m_robotContainer;
@@ -36,7 +37,7 @@ public class Robot extends TimedRobot {
     m_robotContainer = new RobotContainer();
 
     driveTrain = new DriveTrain();
-    joystick = new Joystick(Constants.JOYSTICK_PORT);
+    joystick = new Joystick(JOYSTICK_PORT);
   }
 
   /**
@@ -105,7 +106,6 @@ public class Robot extends TimedRobot {
       /* get gamepad stick values */
       double forw = -1 * joystick.getRawAxis(1); /* positive is forward */
       double turn = +1 * joystick.getRawAxis(2); /* positive is right */
-      // boolean btn1 = joystick.getRawButton(1); /* is button is down, print joystick values */
 
       /* deadband gamepad 10% */
       if (Math.abs(forw) < 0.10) {

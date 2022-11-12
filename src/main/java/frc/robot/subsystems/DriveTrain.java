@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import static frc.robot.Constants.*;
+
 import com.ctre.phoenix.motorcontrol.GroupMotorControllers;
 import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
@@ -13,7 +15,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
 
 public class DriveTrain extends SubsystemBase {
   /** Creates a DriveTrain. */
@@ -28,10 +29,10 @@ public class DriveTrain extends SubsystemBase {
   DifferentialDrive differentialDrive = null;
 
   public DriveTrain() {
-    leftFrontMotor = new WPI_TalonSRX(Constants.DRIVETRAIN_LFMOTOR);
-    leftBackMotor = new WPI_TalonSRX(Constants.DRIVETRAIN_LBMOTOR);
-    rightFrontMotor = new WPI_TalonSRX(Constants.DRIVETRAIN_RFMOTOR);
-    rightBackMotor = new WPI_TalonSRX(Constants.DRIVETRAIN_RBMOTOR);
+    leftFrontMotor = new WPI_TalonSRX(DRIVETRAIN_LFMOTOR);
+    leftBackMotor = new WPI_TalonSRX(DRIVETRAIN_LBMOTOR);
+    rightFrontMotor = new WPI_TalonSRX(DRIVETRAIN_RFMOTOR);
+    rightBackMotor = new WPI_TalonSRX(DRIVETRAIN_RBMOTOR);
 
     // TalonSRXConfiguration config = new TalonSRXConfiguration();
     // config.peakCurrentLimit = 40; // the peak current, in amps
