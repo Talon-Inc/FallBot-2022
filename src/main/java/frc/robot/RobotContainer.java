@@ -4,7 +4,7 @@
 
 package frc.robot;
 
-import static frc.robot.Constants.JOYSTICK_PORT;
+import static frc.robot.Constants.CONTROLLER_PORT;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
@@ -21,7 +21,7 @@ import frc.robot.subsystems.DriveTrain;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final Joystick joystick = new Joystick(JOYSTICK_PORT);
+  private final Joystick joystick = new Joystick(CONTROLLER_PORT);
   // private final XboxController controller = new XboxController(Constants.JOYSTICK_PORT);
   
   private final DriveTrain driveTrain = new DriveTrain();

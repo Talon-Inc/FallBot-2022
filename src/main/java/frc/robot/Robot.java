@@ -4,7 +4,7 @@
 
 package frc.robot;
 
-import static frc.robot.Constants.JOYSTICK_PORT;
+import static frc.robot.Constants.CONTROLLER_PORT;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
     m_robotContainer = new RobotContainer();
 
     driveTrain = new DriveTrain();
-    joystick = new Joystick(JOYSTICK_PORT);
+    joystick = new Joystick(CONTROLLER_PORT);
   }
 
   /**

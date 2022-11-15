@@ -9,7 +9,7 @@ import static frc.robot.Constants.*;
 import com.ctre.phoenix.motorcontrol.GroupMotorControllers;
 import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
-// import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 // import com.ctre.phoenix.motorcontrol.can.TalonSRXConfiguration;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveTrain extends SubsystemBase {
   /** Creates a DriveTrain. */
+  private TalonSRX test = null;
   private WPI_TalonSRX leftFrontMotor = null;
   private WPI_TalonSRX leftBackMotor = null;
   private WPI_TalonSRX rightFrontMotor = null;
@@ -32,6 +33,7 @@ public class DriveTrain extends SubsystemBase {
   private DifferentialDrive differentialDrive = null;
 
   public DriveTrain() {
+    test = new TalonSRX(DRIVE_LEFT_FRONT_MOTOR);
     leftFrontMotor = new WPI_TalonSRX(DRIVE_LEFT_FRONT_MOTOR);
     leftBackMotor = new WPI_TalonSRX(DRIVE_LEFT_BACK_MOTOR);
     rightFrontMotor = new WPI_TalonSRX(DRIVE_RIGHT_FRONT_MOTOR);
@@ -45,11 +47,11 @@ public class DriveTrain extends SubsystemBase {
     // LBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
     // RFMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
     // RBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
-
-    leftFrontMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
-    leftBackMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
-    rightFrontMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
-    rightBackMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
+    test.set(TalonSRXControlMode.PercentOutput, DRIVE_FACTOR);
+    leftFrontMotor.set(TalonSRXControlMode.PercentOutput, DRIVE_FACTOR); // runs the motor at 50% power
+    leftBackMotor.set(TalonSRXControlMode.PercentOutput, DRIVE_FACTOR); // runs the motor at 50% power
+    rightFrontMotor.set(TalonSRXControlMode.PercentOutput, DRIVE_FACTOR); // runs the motor at 50% power
+    rightBackMotor.set(TalonSRXControlMode.PercentOutput, DRIVE_FACTOR); // runs the motor at 50% power
 
     /* factory default values */
     leftFrontMotor.configFactoryDefault();
