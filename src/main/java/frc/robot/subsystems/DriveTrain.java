@@ -14,25 +14,28 @@ import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+// import edu.wpi.first.wpilibj.motorcontrol.MotorController;
+// import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+// import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveTrain extends SubsystemBase {
   /** Creates a DriveTrain. */
-  WPI_TalonSRX leftFrontMotor = null;
-  WPI_TalonSRX leftBackMotor = null;
-  WPI_TalonSRX rightFrontMotor = null;
-  WPI_TalonSRX rightBackMotor = null;
+  private WPI_TalonSRX leftFrontMotor = null;
+  private WPI_TalonSRX leftBackMotor = null;
+  private WPI_TalonSRX rightFrontMotor = null;
+  private WPI_TalonSRX rightBackMotor = null;
 
-  GroupMotorControllers leftMotors = null;
-  GroupMotorControllers rightMotors = null;
+  private GroupMotorControllers leftMotors = null;
+  private GroupMotorControllers rightMotors = null;
 
-  DifferentialDrive differentialDrive = null;
+  private DifferentialDrive differentialDrive = null;
 
   public DriveTrain() {
-    leftFrontMotor = new WPI_TalonSRX(DRIVETRAIN_LFMOTOR);
-    leftBackMotor = new WPI_TalonSRX(DRIVETRAIN_LBMOTOR);
-    rightFrontMotor = new WPI_TalonSRX(DRIVETRAIN_RFMOTOR);
-    rightBackMotor = new WPI_TalonSRX(DRIVETRAIN_RBMOTOR);
+    leftFrontMotor = new WPI_TalonSRX(DRIVE_LEFT_FRONT_MOTOR);
+    leftBackMotor = new WPI_TalonSRX(DRIVE_LEFT_BACK_MOTOR);
+    rightFrontMotor = new WPI_TalonSRX(DRIVE_RIGHT_FRONT_MOTOR);
+    rightBackMotor = new WPI_TalonSRX(DRIVE_RIGHT_BACK_MOTOR);
 
     // TalonSRXConfiguration config = new TalonSRXConfiguration();
     // config.peakCurrentLimit = 40; // the peak current, in amps
@@ -42,11 +45,11 @@ public class DriveTrain extends SubsystemBase {
     // LBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
     // RFMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
     // RBMOTOR.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
-    double power = 0.5;
-    leftFrontMotor.set(TalonSRXControlMode.PercentOutput, power); // runs the motor at 50% power
-    leftBackMotor.set(TalonSRXControlMode.PercentOutput, power); // runs the motor at 50% power
-    rightFrontMotor.set(TalonSRXControlMode.PercentOutput, power); // runs the motor at 50% power
-    rightBackMotor.set(TalonSRXControlMode.PercentOutput, power); // runs the motor at 50% power
+
+    leftFrontMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
+    leftBackMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
+    rightFrontMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
+    rightBackMotor.set(TalonSRXControlMode.PercentOutput, 0.5); // runs the motor at 50% power
 
     /* factory default values */
     leftFrontMotor.configFactoryDefault();
