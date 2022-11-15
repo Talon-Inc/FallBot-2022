@@ -11,12 +11,15 @@ import frc.robot.subsystems.PneumaticsSubsystem;
 
 public class TrickOrTreat extends CommandBase {
   private PneumaticsSubsystem pneumaticsSubsystem = null;
+  private boolean finished;
   /** Creates a new TrickOrTreat. */
   public TrickOrTreat(PneumaticsSubsystem pneumaticsSubsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
     this.pneumaticsSubsystem = pneumaticsSubsystem;
-  }
+    addRequirements(pneumaticsSubsystem);
 
+    finished = false;
+  }
 
 
   // Called when the command is initially scheduled.
@@ -43,6 +46,8 @@ public class TrickOrTreat extends CommandBase {
       // wait(50, 0);
       pneumaticsSubsystem.pufferClose();
     }
+
+    finished = true;
   }
 
   // Called once the command ends or is interrupted.
@@ -52,6 +57,6 @@ public class TrickOrTreat extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return finished;
   }
 }
