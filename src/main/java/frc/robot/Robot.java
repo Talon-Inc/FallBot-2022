@@ -4,7 +4,7 @@
 
 package frc.robot;
 
-import static frc.robot.Constants.*;
+import static frc.robot.Constants.JOYSTICK_PORT;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
