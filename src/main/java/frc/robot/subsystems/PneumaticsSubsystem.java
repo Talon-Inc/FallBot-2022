@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import java.util.Random;
+
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -54,6 +56,14 @@ public class PneumaticsSubsystem extends SubsystemBase {
   public void pufferClose() {
     puffer.set(DoubleSolenoid.Value.kReverse);
   }
+
+  Random random = new Random();
+  int num = random.nextInt(2)+1; {
+
+  for ( int i = 0; i< 100; i++) {
+    int num = random.nextInt(2)+1;
+  }
+   }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
