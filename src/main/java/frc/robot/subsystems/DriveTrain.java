@@ -21,15 +21,15 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveTrain extends SubsystemBase {
   /** Creates a DriveTrain. */
-  WPI_TalonSRX leftFrontMotor = null;
-  WPI_TalonSRX leftBackMotor = null;
-  WPI_TalonSRX rightFrontMotor = null;
-  WPI_TalonSRX rightBackMotor = null;
+  private WPI_TalonSRX leftFrontMotor = null;
+  private WPI_TalonSRX leftBackMotor = null;
+  private WPI_TalonSRX rightFrontMotor = null;
+  private WPI_TalonSRX rightBackMotor = null;
 
-  GroupMotorControllers leftMotors = null;
-  GroupMotorControllers rightMotors = null;
+  private GroupMotorControllers leftMotors = null;
+  private GroupMotorControllers rightMotors = null;
 
-  DifferentialDrive differentialDrive = null;
+  private DifferentialDrive differentialDrive = null;
 
   public DriveTrain() {
     leftFrontMotor = new WPI_TalonSRX(DRIVETRAIN_LFMOTOR);
