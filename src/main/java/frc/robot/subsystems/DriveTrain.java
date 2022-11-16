@@ -44,9 +44,9 @@ public class DriveTrain extends SubsystemBase {
     rightFrontMotor.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
     rightBackMotor.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
 
-    leftFrontMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at FACTOR power
-    leftBackMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at FACTOR power
-    rightFrontMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at FACTOR power
+    leftFrontMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at FACTOR% power
+    leftBackMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at FACTOR% power
+    rightFrontMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at FACTOR% power
     rightBackMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at FACTOR% power
 
     /* factory default values */
@@ -82,6 +82,14 @@ public class DriveTrain extends SubsystemBase {
 
   public void arcadeDrive(double moveSpeed, double rotateSpeed) {
     differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+  }
+
+  public WPI_TalonSRX getleftFrontMotor() {
+    return leftFrontMotor;
+  }
+
+  public WPI_TalonSRX getRightFrontMotor() {
+    return rightFrontMotor;
   }
 
   @Override

@@ -36,8 +36,6 @@ public class DriveCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // String work = "";
-
     /* get gamepad stick values */
     double forw = -1 * controller.getRawAxis(LEFT_STICK_Y); /* positive is forward */
     double turn = +1 * controller.getRawAxis(LEFT_STICK_X); /* positive is right */
@@ -54,15 +52,16 @@ public class DriveCommand extends CommandBase {
     /* drive robot */
     driveTrain.arcadeDrive(forw, turn);
 
+    String work = "";
     /*
      * [2] Make sure Gamepad Forward is positive for FORWARD, and GZ is positive for
      * RIGHT
      */
-    // work += " GF:" + forw + " GT:" + turn;
+    work += " GF:" + forw + " GT:" + turn;
 
     /* get sensor values */
-    // double leftPos = _leftFront.GetSelectedSensorPosition(0);
-    // double rghtPos = _rghtFront.GetSelectedSensorPosition(0);
+    // double leftPos = driveTrain.getleftFrontMotor().GetSelectedSensorPosition(0);
+    // double rghtPos = driveTrain.getRightFrontMotor().GetSelectedSensorPosition(0);
     // double leftVelUnitsPer100ms = _leftFront.getSelectedSensorVelocity(0);
     // double rghtVelUnitsPer100ms = _rghtFront.getSelectedSensorVelocity(0);
 
@@ -84,6 +83,7 @@ public class DriveCommand extends CommandBase {
     // /* print to console if btn1 is held down */
     // if (btn1) {
     //     System.out.println(work);
+    System.out.println(work);
   }
 
   // Called once the command ends or is interrupted.
