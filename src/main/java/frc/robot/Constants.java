@@ -20,4 +20,6 @@ public final class Constants {
     public static final double DRIVE_FACTOR = 0.5;
 
     public static final int CONTROLLER_PORT = 0;
+    public static final int LEFT_STICK_X = 0;
+    public static final int LEFT_STICK_Y = 1;
 }

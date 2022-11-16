@@ -4,7 +4,7 @@
 
 package frc.robot;
 
-import static frc.robot.Constants.CONTROLLER_PORT;
+import static frc.robot.Constants.*;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -104,8 +104,8 @@ public class Robot extends TimedRobot {
     // flag = true; // uncomment this line to switch versions
     if (flag) {
       /* get gamepad stick values */
-      double forw = -1 * joystick.getRawAxis(1); /* positive is forward */
-      double turn = +1 * joystick.getRawAxis(2); /* positive is right */
+      double forw = -1 * joystick.getRawAxis(LEFT_STICK_Y); /* positive is forward */
+      double turn = +1 * joystick.getRawAxis(LEFT_STICK_X); /* positive is right */
 
       /* deadband gamepad 10% */
       if (Math.abs(forw) < 0.10) {
