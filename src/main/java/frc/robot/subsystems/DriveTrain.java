@@ -32,10 +32,10 @@ public class DriveTrain extends SubsystemBase {
   private DifferentialDrive differentialDrive = null;
 
   public DriveTrain() {
-    leftFrontMotor = new WPI_TalonSRX(DRIVETRAIN_LFMOTOR);
-    leftBackMotor = new WPI_TalonSRX(DRIVETRAIN_LBMOTOR);
-    rightFrontMotor = new WPI_TalonSRX(DRIVETRAIN_RFMOTOR);
-    rightBackMotor = new WPI_TalonSRX(DRIVETRAIN_RBMOTOR);
+    leftFrontMotor = new WPI_TalonSRX(DRIVE_LEFT_FRONT_MOTOR);
+    leftBackMotor = new WPI_TalonSRX(DRIVE_LEFT_BACK_MOTOR);
+    rightFrontMotor = new WPI_TalonSRX(DRIVE_RIGHT_FRONT_MOTOR);
+    rightBackMotor = new WPI_TalonSRX(DRIVE_RIGHT_BACK_MOTOR);
 
     // TalonSRXConfiguration config = new TalonSRXConfiguration();
     // config.peakCurrentLimit = 40; // the peak current, in amps
