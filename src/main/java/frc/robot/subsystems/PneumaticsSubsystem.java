@@ -15,22 +15,18 @@ public class PneumaticsSubsystem extends SubsystemBase {
   // Variables
   private Compressor comp = null;
   private DoubleSolenoid sol1 = null;
+  private DoubleSolenoid sol2 = null;
   private DoubleSolenoid pusher = null;
   private DoubleSolenoid puffer = null;
 
-  /**
-   * Creates a new PneumaticsSubsystem.
-   */
+  /** Creates a new PneumaticsSubsystem. */
   public PneumaticsSubsystem() {
     comp = new Compressor(PneumaticsModuleType.valueOf("CTREPCM"));
-    sol1 = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 0, 1);
-    pusher = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 2, 3);
-    puffer = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 4, 5);
-  }
-
-  // Methods
-  public void compStart() {
     comp.enableDigital();
+    sol1 = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 0, 1);
+    sol2 = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 2, 3);
+    pusher = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 4, 5);
+    puffer = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 6, 7);
   }
 
   public void sol1Open() {
@@ -41,10 +37,18 @@ public class PneumaticsSubsystem extends SubsystemBase {
     sol1.set(DoubleSolenoid.Value.kReverse);
   }
 
+  public void sol2Open() {
+    sol2.set(DoubleSolenoid.Value.kForward);
+  }
+
+  public void sol2Close() {
+    sol2.set(DoubleSolenoid.Value.kReverse);
+  }
+
   public void pusherOpen() {
     pusher.set(DoubleSolenoid.Value.kForward);
   }
-
+  
   public void pusherClose() {
     pusher.set(DoubleSolenoid.Value.kReverse);
   }
@@ -57,10 +61,10 @@ public class PneumaticsSubsystem extends SubsystemBase {
     puffer.set(DoubleSolenoid.Value.kReverse);
   }
 
-
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+   
   }
 
   @Override

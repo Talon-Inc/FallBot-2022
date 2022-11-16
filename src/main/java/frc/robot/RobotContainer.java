@@ -32,7 +32,7 @@ public class RobotContainer {
   private final PneumaticsSubsystem pSubsystem = new PneumaticsSubsystem();
   private final PnuematicsCommand pCommand = new PnuematicsCommand(pSubsystem);
 
-  private Joystick joystick = new Joystick(0);
+  private Joystick joystick = new Joystick(JOYSTICK_PORT);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -49,7 +49,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    JoystickButton aButton = new JoystickButton(joystick, Constants.A);
+    JoystickButton A_Button = new JoystickButton(joystick, A_BUTTON);
   }
 
   /**
