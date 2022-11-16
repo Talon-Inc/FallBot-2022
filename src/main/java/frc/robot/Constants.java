@@ -17,6 +17,7 @@ public final class Constants {
     public static final int DRIVE_LEFT_BACK_MOTOR = 2;
     public static final int DRIVE_RIGHT_FRONT_MOTOR = 3;
     public static final int DRIVE_RIGHT_BACK_MOTOR = 4;
+    public static final double FACTOR = 1;
     
     public static final int CONTROLLER_PORT = 0;
     public static final int LEFT_STICK_X = 0;
