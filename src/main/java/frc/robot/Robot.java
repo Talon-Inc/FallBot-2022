@@ -60,7 +60,7 @@ public class Robot extends TimedRobot {
   @Override
   public void disabledInit() {
     // CommandScheduler.getInstance().cancelAll();
-    driveTrain.arcadeDrive(0, 0);
+    // driveTrain.arcadeDrive(0, 0);
   }
 
   @Override
@@ -101,7 +101,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     boolean flag = false;
-    // flag = true; // uncomment this line to switch versions
+    flag = true; // uncomment this line to switch versions
     if (flag) {
       /* get gamepad stick values */
       double forw = -1 * joystick.getRawAxis(LEFT_STICK_Y); /* positive is forward */
