@@ -6,31 +6,29 @@ package frc.robot.subsystems;
 
 import static frc.robot.Constants.*;
 
-import com.ctre.phoenix.motorcontrol.GroupMotorControllers;
+// import com.ctre.phoenix.motorcontrol.GroupMotorControllers;
 import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.TalonSRXConfiguration;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 // import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 // import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-// import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveTrain extends SubsystemBase {
-  /** Creates a DriveTrain. */
   private WPI_TalonSRX leftFrontMotor = null;
   private WPI_TalonSRX leftBackMotor = null;
   private WPI_TalonSRX rightFrontMotor = null;
   private WPI_TalonSRX rightBackMotor = null;
 
-  private GroupMotorControllers leftMotors = null;
-  private GroupMotorControllers rightMotors = null;
+  // private GroupMotorControllers leftMotors = null;
+  // private GroupMotorControllers rightMotors = null;
 
   private DifferentialDrive differentialDrive = null;
 
+  /** Creates a new DriveTrain. */
   public DriveTrain() {
     leftFrontMotor = new WPI_TalonSRX(DRIVE_LEFT_FRONT_MOTOR);
     leftBackMotor = new WPI_TalonSRX(DRIVE_LEFT_BACK_MOTOR);
@@ -46,10 +44,10 @@ public class DriveTrain extends SubsystemBase {
     rightFrontMotor.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
     rightBackMotor.configAllSettings(config); // apply the config settings; this selects the quadrature encoder
 
-    leftFrontMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at 50% power
-    leftBackMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at 50% power
-    rightFrontMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at 50% power
-    rightBackMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at 50% power
+    leftFrontMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at FACTOR power
+    leftBackMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at FACTOR power
+    rightFrontMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at FACTOR power
+    rightBackMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); // runs the motor at FACTOR% power
 
     /* factory default values */
     leftFrontMotor.configFactoryDefault();
@@ -70,9 +68,7 @@ public class DriveTrain extends SubsystemBase {
     leftBackMotor.setInverted(InvertType.FollowMaster);
     rightBackMotor.setInverted(InvertType.FollowMaster);
     
-    /*
-     * [4] adjust sensor phase so sensor moves positive when Talon LEDs are green
-     */
+    /* [4] adjust sensor phase so sensor moves positive when Talon LEDs are green */
     leftFrontMotor.setSensorPhase(true);
     rightFrontMotor.setSensorPhase(true);
 
