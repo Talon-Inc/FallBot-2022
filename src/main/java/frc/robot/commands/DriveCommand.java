@@ -7,25 +7,26 @@ package frc.robot.commands;
 import static frc.robot.Constants.*;
 
 import frc.robot.subsystems.DriveTrain;
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
 public class DriveCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private DriveTrain driveTrain;
-  private Joystick joystick;
+  private DriveTrain driveTrain = null;
+  private XboxController controller = null;
 
   /**
    * Creates a new DriveCommand.
    *
    * @param driveTrain The subsystem used by this command.
+   * @param controller The controller.
    */
-  public DriveCommand(DriveTrain driveTrain, Joystick joystick) {
+  public DriveCommand(DriveTrain driveTrain, XboxController controller) {
     this.driveTrain = driveTrain;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrain);
-    this.joystick = joystick;
+    this.controller = controller;
   }
 
   // Called when the command is initially scheduled.
@@ -38,8 +39,8 @@ public class DriveCommand extends CommandBase {
     // String work = "";
 
     /* get gamepad stick values */
-    double forw = -1 * joystick.getRawAxis(LEFT_STICK_Y); /* positive is forward */
-    double turn = +1 * joystick.getRawAxis(LEFT_STICK_X); /* positive is right */
+    double forw = -1 * controller.getRawAxis(LEFT_STICK_Y); /* positive is forward */
+    double turn = +1 * controller.getRawAxis(LEFT_STICK_X); /* positive is right */
     // boolean btn1 = joystick.getRawButton(1); /* is button is down, print joystick values */
 
     /* deadband gamepad 10% */
@@ -87,9 +88,7 @@ public class DriveCommand extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    // driveTrain.arcadeDrive(0, 0);
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override
