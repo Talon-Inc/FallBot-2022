@@ -46,6 +46,7 @@ public class PneumaticsSubsystem extends SubsystemBase {
   public void pusherOpen() {
     pusher.set(DoubleSolenoid.Value.kForward);
   }
+  
   public void pusherClose() {
     pusher.set(DoubleSolenoid.Value.kReverse);
   }
