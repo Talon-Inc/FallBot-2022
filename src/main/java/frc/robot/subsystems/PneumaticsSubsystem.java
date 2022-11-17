@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+
+
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -49,7 +51,6 @@ public class PneumaticsSubsystem extends SubsystemBase {
     puffer.set(DoubleSolenoid.Value.kReverse);
   }
 
-  // Methods
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
