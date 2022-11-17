@@ -32,7 +32,7 @@ public class RobotContainer {
   private final PneumaticsSubsystem pSubsystem = new PneumaticsSubsystem();
   private final PnuematicsCommand pCommand = new PnuematicsCommand(pSubsystem);
 
-  private Joystick joystick = new Joystick(JOYSTICK_PORT);
+  private Joystick joystick = new Joystick(CONTROLLER_PORT);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

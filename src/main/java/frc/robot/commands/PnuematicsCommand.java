@@ -4,18 +4,18 @@
 
 package frc.robot.commands;
 
-import static frc.robot.Constants.JOYSTICK_PORT;
+import static frc.robot.Constants.CONTROLLER_PORT;
 
 import frc.robot.subsystems.PneumaticsSubsystem;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
 public class PnuematicsCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final PneumaticsSubsystem pneumaticsSubsystem;
-  private Joystick joystick = null;
+  private XboxController controller = null;
   /**
    * Creates a new ExampleCommand.
    *
@@ -25,7 +25,7 @@ public class PnuematicsCommand extends CommandBase {
     pneumaticsSubsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
-    joystick = new Joystick(JOYSTICK_PORT);
+    controller = new XboxController(CONTROLLER_PORT);
   }
 
   // Called when the command is initially scheduled.
@@ -37,10 +37,10 @@ public class PnuematicsCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      if (joystick.getRawButton(1)) {
-        pneumaticsSubsystem.sol1Open();
-      } else if (joystick.getRawButton(2)) {
-        pneumaticsSubsystem.sol1Close();
+      if (controller.getRawButton(1)) {
+        pneumaticsSubsystem.mouthOpen();
+      } else if (controller.getRawButton(2)) {
+        pneumaticsSubsystem.mouthClose();
       }
   }
 
