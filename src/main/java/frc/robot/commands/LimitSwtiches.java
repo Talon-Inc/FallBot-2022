@@ -8,4 +8,17 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class LimitSwtiches extends CommandBase {
     
+    DigitalInput limitSwitch;
+
+    public void robotInit() {
+        limitSwitch = new DigitalInput(1);
+    }
+
+    public void operatorControl() {
+
+        while (limitSwitch.get()) {
+            Timer.delay(10);
+        }
+    }
 }
+

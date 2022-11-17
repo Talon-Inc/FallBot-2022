@@ -15,4 +15,6 @@ package frc.robot;
 public final class Constants {
     public static final int JOYSTICK_PORT = 0;
     public static final int A_BUTTON = 1;
+
+    public static final int NOSE_BUTTON = 1;
 }
