@@ -18,7 +18,7 @@ public class LimitSwitchesSubsystem extends SubsystemBase {
   }
 
   public boolean getNoseButton() {
-    return  digInp.get();
+    return digInp.get();
   }
 
   @Override
