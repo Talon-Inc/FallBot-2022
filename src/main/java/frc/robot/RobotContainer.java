@@ -8,7 +8,6 @@ import static frc.robot.Constants.*;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PneumaticHub;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.PnuematicsCommand;
@@ -32,14 +31,14 @@ public class RobotContainer {
   private final PneumaticsSubsystem pSubsystem = new PneumaticsSubsystem();
   private final PnuematicsCommand pCommand = new PnuematicsCommand(pSubsystem);
 
-  private Joystick joystick = new Joystick(CONTROLLER_PORT);
+  private XboxController controller = new XboxController(CONTROLLER_PORT);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
 
-    ButtonDebouncer debounce = new ButtonDebouncer(joystick, 1);
+    ButtonDebouncer debounce = new ButtonDebouncer(controller, 1);
   }
 
   /**
@@ -49,7 +48,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    JoystickButton A_Button = new JoystickButton(joystick, A_BUTTON);
+    JoystickButton A_Button = new JoystickButton(controller, A_BUTTON);
   }
 
   /**
