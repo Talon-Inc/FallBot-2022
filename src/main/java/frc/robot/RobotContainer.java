@@ -29,17 +29,17 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
+  private XboxController controller = new XboxController(CONTROLLER_PORT);
+  
   // Subsystems
   private final LimitSwitchesSubsystem lSubsystem = new LimitSwitchesSubsystem();
   private final PneumaticsSubsystem pSubsystem = new PneumaticsSubsystem();
 
   // Commands
-  private final PnuematicsCommand pCommand = new PnuematicsCommand(pSubsystem);
+  private final PnuematicsCommand pCommand = new PnuematicsCommand(pSubsystem, controller);
   private final TrickOrTreat trickOrTreat = new TrickOrTreat(pSubsystem);
   private final OpenMouth openMouth = new OpenMouth(pSubsystem);
   private final CloseMouth closeMouth = new CloseMouth(pSubsystem);
-
-  private XboxController controller = new XboxController(CONTROLLER_PORT);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -61,6 +61,9 @@ public class RobotContainer {
 
     JoystickButton B_button = new JoystickButton(controller, BUTTON_B);
     B_button.toggleWhenPressed(closeMouth);
+
+    JoystickButton Y_button = new JoystickButton(controller, BUTTON_Y);
+    Y_button.toggleWhenPressed(trickOrTreat);
   }
 
   /**

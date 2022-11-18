@@ -20,11 +20,11 @@ public class PnuematicsCommand extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public PnuematicsCommand(PneumaticsSubsystem subsystem) {
-    pneumaticsSubsystem = subsystem;
+  public PnuematicsCommand(PneumaticsSubsystem subsystem, XboxController controller) {
+    this.pneumaticsSubsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
-    controller = new XboxController(CONTROLLER_PORT);
+    this.controller = controller;
   }
 
   // Called when the command is initially scheduled.

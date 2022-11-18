@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand = null;
+  private Command r_pneumaticsCommand = null;
 
   private RobotContainer m_robotContainer = null;
 
@@ -79,6 +80,10 @@ public class Robot extends TimedRobot {
     // this line or comment it out.
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
+    }
+
+    if (r_pneumaticsCommand != null) {
+      r_pneumaticsCommand.schedule();
     }
   }
 
