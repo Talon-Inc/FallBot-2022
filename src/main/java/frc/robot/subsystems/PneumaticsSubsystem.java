@@ -14,8 +14,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class PneumaticsSubsystem extends SubsystemBase {
   // Variables
   private Compressor comp = null;
-  private DoubleSolenoid sol1 = null;
-  private DoubleSolenoid sol2 = null;
+  private DoubleSolenoid mouth = null;
   private DoubleSolenoid pusher = null;
   private DoubleSolenoid puffer = null;
 
@@ -23,26 +22,17 @@ public class PneumaticsSubsystem extends SubsystemBase {
   public PneumaticsSubsystem() {
     comp = new Compressor(PneumaticsModuleType.valueOf("CTREPCM"));
     comp.enableDigital();
-    sol1 = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 0, 1);
-    sol2 = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 2, 3);
-    pusher = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 4, 5);
-    puffer = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 6, 7);
+    mouth = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 0, 1);
+    pusher = new DoubleSolenoid(PneumaticsModuleType.valueOf("CTREPCM"), 2, 3);
+    puffer = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 4, 5);
   }
 
-  public void sol1Open() {
-    sol1.set(DoubleSolenoid.Value.kForward);
+  public void mouthOpen() {
+    mouth.set(DoubleSolenoid.Value.kForward);
   }
 
-  public void sol1Close() {
-    sol1.set(DoubleSolenoid.Value.kReverse);
-  }
-
-  public void sol2Open() {
-    sol2.set(DoubleSolenoid.Value.kForward);
-  }
-
-  public void sol2Close() {
-    sol2.set(DoubleSolenoid.Value.kReverse);
+  public void mouthClose() {
+    mouth.set(DoubleSolenoid.Value.kReverse);
   }
 
   public void pusherOpen() {
