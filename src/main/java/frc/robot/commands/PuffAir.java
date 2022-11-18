@@ -26,7 +26,7 @@ public class PuffAir extends InstantCommand {
     pSubsystem.pufferOpen();
     //wait 
     // WaitCommand wait = null;
-    WaitCommand::WaitCommand(.05);
+    new WaitCommand(.05); // probably wrong
     pSubsystem.pufferClose();
   }
 }
