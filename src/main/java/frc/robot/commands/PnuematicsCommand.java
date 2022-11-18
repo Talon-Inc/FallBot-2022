@@ -6,10 +6,9 @@ package frc.robot.commands;
 
 import static frc.robot.Constants.CONTROLLER_PORT;
 
-import frc.robot.subsystems.PneumaticsSubsystem;
-
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.PneumaticsSubsystem;
 
 /** An example command that uses an example subsystem. */
 public class PnuematicsCommand extends CommandBase {
@@ -17,7 +16,7 @@ public class PnuematicsCommand extends CommandBase {
   private final PneumaticsSubsystem pneumaticsSubsystem;
   private XboxController controller = null;
   /**
-   * Creates a new ExampleCommand.
+   * Creates a new PneumaticsCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
