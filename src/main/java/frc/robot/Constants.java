@@ -20,6 +20,24 @@ public final class Constants {
     public static final double FACTOR = 1;
     
     public static final int CONTROLLER_PORT = 0;
+    
     public static final int LEFT_STICK_X = 0;
     public static final int LEFT_STICK_Y = 1;
+    public static final double LEFT_TRIGGER = 2;
+    public static final double RIGHT_TRIGGER = 3;
+    public static final double RIGHT_STICK_X = 4;
+    public static final double RIGHT_STICK_Y = 5;
+
+    public static final int BUTTON_A = 1;
+    public static final int BUTTON_B = 2;
+    public static final int BUTTON_X = 3;
+    public static final int BUTTON_Y = 4;
+    public static final int LEFT_BUMPER = 5;
+    public static final int RIGHT_BUMPER = 6;
+    public static final int BACK_BUTTON = 7;
+    public static final int START_BUTTON = 8;
+    public static final int LEFT_STICK_BUTTON = 9;
+    public static final int RIGHT_STICK_BUTTON = 10;
+
+    public static final int NOSE_BUTTON = 1;
 }
